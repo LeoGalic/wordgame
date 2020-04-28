@@ -128,20 +128,20 @@ zebra
     var $soundNormal = $("<audio preload=auto>");
     // See: https://www.khanacademy.org/computer-programming/example-playing-sound-on-click/6617772749619200
     $soundNormal.attr("src",
-        "https://www.kasandbox.org/programming-sounds/retro/coin.mp3	");
+       "");
         
     // Creates a new <audio> element
     var $soundLose = $("<audio preload=auto>");
     // See: https://www.khanacademy.org/computer-programming/example-playing-sound-on-click/6617772749619200
     $soundLose.attr("src",
-        "https://www.kasandbox.org/programming-sounds/rpg/giant-no.mp3");
+        "");
         
         
        // Creates a new <audio> element
     var $soundSpecial = $("<audio preload=auto>");
     // See: https://www.khanacademy.org/computer-programming/example-playing-sound-on-click/6617772749619200
     $soundSpecial.attr("src",
-        "https://www.kasandbox.org/programming-sounds/retro/laser4.mp3");
+        "");
         
         
         
@@ -220,7 +220,11 @@ zebra
   var PlaySound = function(score){
       if(score % 10 !== 0)
       {
-   
+          $soundNormal[0].play();
+      }
+      else {
+          $soundSpecial[0].play();
+      }
   
   };
    
@@ -247,10 +251,10 @@ zebra
        
        else if (score >= 10)
        {
-           message += " You're pretty good !"
+           message += " Good!"
        }
        else{
-           message += " Next time more luck"
+           message += " Try again"
        }
        
        if(!lost){
